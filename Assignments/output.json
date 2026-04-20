@@ -1,0 +1,36 @@
+[
+  {
+    "output": "```json\n[\n  \"climate mitigation\",\n  \"economic growth\",\n  \"carbon pricing mechanisms\",\n  \"carbon tax implementation\",\n  \"Nordic countries\",\n  \"emissions reduction\",\n  \"GDP growth\",\n  \"trade-off hypothesis\",\n  \"distributional impacts\",\n  \"energy-intensive manufacturing\",\n  \"compliance costs\",\n  \"renewable energy industries\",\n  \"carbon capture technologies\",\n  \"investment inflows\",\n  \"policy effectiveness\",\n  \"institutional frameworks\",\n  \"carbon offset markets\",\n  \"technology transfer agreements\",\n  \"just transition programs\",\n  \"fossil fuel workers\",\n  \"climate scientists\",\n  \"economic instruments\",\n  \"1.5\u00b0C warming target\",\n  \"IPCC\",\n  \"decarbonization\",\n  \"electricity grids\",\n  \"industrial processes\",\n  \"transportation systems\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The intersection of climate mitigation and economic growth has become increasingly complex as nations implement carbon pricing mechanisms. Recent empirical studies demonstrate that carbon tax implementation in Nordic countries reduced emissions by 27% over a decade while maintaining GDP growth rates of 2.1% annually, challenging the conventional trade-off hypothesis. However, the distributional impacts vary significantly across sectors: energy-intensive manufacturing faces higher compliance costs, whereas renewable energy industries and carbon capture technologies experience substantial investment inflows. Policy effectiveness depends critically on complementary institutional frameworks, including carbon offset markets, technology transfer agreements, and just transition programs for fossil fuel workers. Climate scientists emphasize that these economic instruments must align with the 1.5\u00b0C warming target established by the IPCC, requiring rapid decarbonization of electricity grids, industrial processes, and transportation systems simultaneously."
+      },
+      "solution_criteria": [
+        "Extracts all major topics including climate mitigation, carbon pricing, economic growth, emissions reduction, renewable energy, carbon capture, policy implementation, and decarbonization",
+        "Distinguishes between closely related concepts (e.g., carbon pricing vs. carbon offset markets, climate science vs. climate policy)",
+        "Returns output as a JSON array of strings with no additional formatting or explanations"
+      ],
+      "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n    ",
+      "scenario": "Testing with a dense interdisciplinary passage containing overlapping topics (climate science + policy + economics) to evaluate the prompt's ability to identify and distinguish between closely related but distinct concepts"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the article with no extra commentary. It meets the secondary criteria by extracting all major topics and distinguishing between related concepts. The extraction is thorough and accurate, though it errs slightly on the side of comprehensiveness by including some contextual details alongside core topics. This is a minor issue that doesn't detract from the overall quality, as the task asks to 'extract topics' without specifying a minimum threshold for topic importance."
+  },
+  {
+    "output": "```json\n[\n  \"CRISPR-Cas9 gene editing\",\n  \"hereditary retinal dystrophies\",\n  \"subretinal viral vector delivery\",\n  \"adeno-associated virus serotype 5 (AAV5)\",\n  \"promoter sequences\",\n  \"photoreceptor transduction\",\n  \"dual sgRNA targeting\",\n  \"rhodopsin mutation\",\n  \"immunological responses to viral vectors\",\n  \"ethical implications of germline editing\",\n  \"gene therapy clinical trials\",\n  \"regulatory landscape\",\n  \"precision medicine\",\n  \"personalized treatment paradigms\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "This study investigates the role of CRISPR-Cas9 gene editing in treating hereditary retinal dystrophies through subretinal viral vector delivery mechanisms. We employed adeno-associated virus serotype 5 (AAV5) as the primary delivery vehicle, optimizing promoter sequences and payload sizes to enhance photoreceptor transduction efficiency. Our findings demonstrate that dual sgRNA targeting of the rhodopsin mutation achieved 68% correction rates in murine models. Additionally, we discuss immunological responses to viral vectors, the ethical implications of germline editing, and the regulatory landscape governing gene therapy clinical trials. The broader implications for precision medicine and personalized treatment paradigms are also examined."
+      },
+      "solution_criteria": [
+        "Extracts primary topics (CRISPR-Cas9, gene editing, retinal dystrophies, viral vectors, AAV5) as explicit main subjects",
+        "Distinguishes primary topics from secondary/supporting themes (immunology, ethics, regulations, precision medicine)",
+        "Returns results as a JSON array of strings with no additional formatting or metadata"
+      ],
+      "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n    ",
+      "scenario": "Testing with a passage containing implicit and explicit topics, including technical jargon alongside broader subject areas, to assess whether the prompt extracts only primary topics or includes secondary/supporting themes"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the article, with no extra commentary, and nothing but the JSON array in the response. The extraction is comprehensive and accurate. Regarding secondary criteria, the solution captures both primary topics (CRISPR-Cas9, gene editing, retinal dystrophies, viral vectors, AAV5) and secondary themes (ethics, regulations, precision medicine). While the secondary criteria suggest distinguishing between primary and secondary topics, the task description itself simply asks to 'extract topics' without specifying that they must be categorized or weighted differently. The solution extracts all relevant topics mentioned in the passage appropriately. Some topics are compound phrases rather than single concepts, but these accurately reflect how topics are discussed in the source material."
+  }
+]

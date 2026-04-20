@@ -1,0 +1,26 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "The intersection of climate mitigation and economic growth has become increasingly complex as nations implement carbon pricing mechanisms. Recent empirical studies demonstrate that carbon tax implementation in Nordic countries reduced emissions by 27% over a decade while maintaining GDP growth rates of 2.1% annually, challenging the conventional trade-off hypothesis. However, the distributional impacts vary significantly across sectors: energy-intensive manufacturing faces higher compliance costs, whereas renewable energy industries and carbon capture technologies experience substantial investment inflows. Policy effectiveness depends critically on complementary institutional frameworks, including carbon offset markets, technology transfer agreements, and just transition programs for fossil fuel workers. Climate scientists emphasize that these economic instruments must align with the 1.5\u00b0C warming target established by the IPCC, requiring rapid decarbonization of electricity grids, industrial processes, and transportation systems simultaneously."
+    },
+    "solution_criteria": [
+      "Extracts all major topics including climate mitigation, carbon pricing, economic growth, emissions reduction, renewable energy, carbon capture, policy implementation, and decarbonization",
+      "Distinguishes between closely related concepts (e.g., carbon pricing vs. carbon offset markets, climate science vs. climate policy)",
+      "Returns output as a JSON array of strings with no additional formatting or explanations"
+    ],
+    "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a dense interdisciplinary passage containing overlapping topics (climate science + policy + economics) to evaluate the prompt's ability to identify and distinguish between closely related but distinct concepts"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study investigates the role of CRISPR-Cas9 gene editing in treating hereditary retinal dystrophies through subretinal viral vector delivery mechanisms. We employed adeno-associated virus serotype 5 (AAV5) as the primary delivery vehicle, optimizing promoter sequences and payload sizes to enhance photoreceptor transduction efficiency. Our findings demonstrate that dual sgRNA targeting of the rhodopsin mutation achieved 68% correction rates in murine models. Additionally, we discuss immunological responses to viral vectors, the ethical implications of germline editing, and the regulatory landscape governing gene therapy clinical trials. The broader implications for precision medicine and personalized treatment paradigms are also examined."
+    },
+    "solution_criteria": [
+      "Extracts primary topics (CRISPR-Cas9, gene editing, retinal dystrophies, viral vectors, AAV5) as explicit main subjects",
+      "Distinguishes primary topics from secondary/supporting themes (immunology, ethics, regulations, precision medicine)",
+      "Returns results as a JSON array of strings with no additional formatting or metadata"
+    ],
+    "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a passage containing implicit and explicit topics, including technical jargon alongside broader subject areas, to assess whether the prompt extracts only primary topics or includes secondary/supporting themes"
+  }
+]

@@ -1,0 +1,212 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">2</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">9.0 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a dense interdisciplinary passage containing overlapping topics (climate science + policy + economics) to evaluate the prompt's ability to identify and distinguish between closely related but distinct concepts</td>
+                <td class="prompt-inputs"><strong>content:</strong> The intersection of climate mitigation and economic growth has become increasingly complex as nations implement carbon pricing mechanisms. Recent empirical studies demonstrate that carbon tax implementation in Nordic countries reduced emissions by 27% over a decade while maintaining GDP growth rates of 2.1% annually, challenging the conventional trade-off hypothesis. However, the distributional impacts vary significantly across sectors: energy-intensive manufacturing faces higher compliance costs, whereas renewable energy industries and carbon capture technologies experience substantial investment inflows. Policy effectiveness depends critically on complementary institutional frameworks, including carbon offset markets, technology transfer agreements, and just transition programs for fossil fuel workers. Climate scientists emphasize that these economic instruments must align with the 1.5°C warming target established by the IPCC, requiring rapid decarbonization of electricity grids, industrial processes, and transportation systems simultaneously.</td>
+                <td class="criteria">• Extracts all major topics including climate mitigation, carbon pricing, economic growth, emissions reduction, renewable energy, carbon capture, policy implementation, and decarbonization<br>• Distinguishes between closely related concepts (e.g., carbon pricing vs. carbon offset markets, climate science vs. climate policy)<br>• Returns output as a JSON array of strings with no additional formatting or explanations</td>
+                <td class="output"><pre>```json
+[
+  "climate mitigation",
+  "economic growth",
+  "carbon pricing mechanisms",
+  "carbon tax implementation",
+  "Nordic countries",
+  "emissions reduction",
+  "GDP growth",
+  "trade-off hypothesis",
+  "distributional impacts",
+  "energy-intensive manufacturing",
+  "compliance costs",
+  "renewable energy industries",
+  "carbon capture technologies",
+  "investment inflows",
+  "policy effectiveness",
+  "institutional frameworks",
+  "carbon offset markets",
+  "technology transfer agreements",
+  "just transition programs",
+  "fossil fuel workers",
+  "climate scientists",
+  "economic instruments",
+  "1.5°C warming target",
+  "IPCC",
+  "decarbonization",
+  "electricity grids",
+  "industrial processes",
+  "transportation systems"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the article with no extra commentary. It meets the secondary criteria by extracting all major topics and distinguishing between related concepts. The extraction is thorough and accurate, though it errs slightly on the side of comprehensiveness by including some contextual details alongside core topics. This is a minor issue that doesn't detract from the overall quality, as the task asks to 'extract topics' without specifying a minimum threshold for topic importance.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing implicit and explicit topics, including technical jargon alongside broader subject areas, to assess whether the prompt extracts only primary topics or includes secondary/supporting themes</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study investigates the role of CRISPR-Cas9 gene editing in treating hereditary retinal dystrophies through subretinal viral vector delivery mechanisms. We employed adeno-associated virus serotype 5 (AAV5) as the primary delivery vehicle, optimizing promoter sequences and payload sizes to enhance photoreceptor transduction efficiency. Our findings demonstrate that dual sgRNA targeting of the rhodopsin mutation achieved 68% correction rates in murine models. Additionally, we discuss immunological responses to viral vectors, the ethical implications of germline editing, and the regulatory landscape governing gene therapy clinical trials. The broader implications for precision medicine and personalized treatment paradigms are also examined.</td>
+                <td class="criteria">• Extracts primary topics (CRISPR-Cas9, gene editing, retinal dystrophies, viral vectors, AAV5) as explicit main subjects<br>• Distinguishes primary topics from secondary/supporting themes (immunology, ethics, regulations, precision medicine)<br>• Returns results as a JSON array of strings with no additional formatting or metadata</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR-Cas9 gene editing",
+  "hereditary retinal dystrophies",
+  "subretinal viral vector delivery",
+  "adeno-associated virus serotype 5 (AAV5)",
+  "promoter sequences",
+  "photoreceptor transduction",
+  "dual sgRNA targeting",
+  "rhodopsin mutation",
+  "immunological responses to viral vectors",
+  "ethical implications of germline editing",
+  "gene therapy clinical trials",
+  "regulatory landscape",
+  "precision medicine",
+  "personalized treatment paradigms"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the article, with no extra commentary, and nothing but the JSON array in the response. The extraction is comprehensive and accurate. Regarding secondary criteria, the solution captures both primary topics (CRISPR-Cas9, gene editing, retinal dystrophies, viral vectors, AAV5) and secondary themes (ethics, regulations, precision medicine). While the secondary criteria suggest distinguishing between primary and secondary topics, the task description itself simply asks to 'extract topics' without specifying that they must be categorized or weighted differently. The solution extracts all relevant topics mentioned in the passage appropriately. Some topics are compound phrases rather than single concepts, but these accurately reflect how topics are discussed in the source material.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
